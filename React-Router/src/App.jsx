@@ -6,6 +6,8 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Laptop from "./pages/Laptop";
 import Mobile from "./pages/Mobile";
+import Course from "./pages/Course";
+import CourseDetails from "./pages/CourseDetails";
 
 const App = () => {
   return (
@@ -22,6 +24,9 @@ const App = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
+            <Link to="/course">Course</Link>
+          </li>
+          <li>
             <a href="/about" className="hover:text-gray-400">
               About
             </a>
@@ -31,16 +36,17 @@ const App = () => {
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/service" element={<Service />} >
-        
-        <Route path="laptop" element={<Laptop />} />
-        <Route path="mobile" element={<Mobile />} />
-        
+        <Route path="/service" element={<Service />}>
+          <Route path="laptop" element={<Laptop />} />
+          <Route path="mobile" element={<Mobile />} />
         </Route>
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         {/* <Route path="/service/laptop" element={<Laptop />} />
         <Route path="/service/mobile" element={<Mobile />} /> */}
+        <Route path="/course" element={<Course />} />
+        <Route path="/course/:courseId" element={<CourseDetails/>} /> 
+        {/* This is called dynamic routing */}
 
         <Route
           path="*"
