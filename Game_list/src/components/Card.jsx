@@ -1,8 +1,11 @@
 import { Star } from "lucide-react";
 import React from "react";
+import { useNavigate } from "react-router";
 
-const Card = ({game}) => {
-  console.log(game);
+const Card = ({ game }) => {
+  // console.log(game);
+  // console.log(game.id);
+  const navigate = useNavigate();
   return (
     <div
       className="w-55 h-75 bg-zinc-800 rounded-lg
@@ -20,20 +23,23 @@ const Card = ({game}) => {
       "
       >
         <h1
-        className="text-md font-bold"
-        >{game.name}</h1>
+          className="text-md font-bold
+        text-white text-wrap"
+        >
+          {game.name}
+        </h1>
         <div className="flex gap-1 items-center">
           <Star size={20} color="yellow" />
-          <h3
-          className="text-sm font-semibold"
-          >{game.rating}</h3>
+          <h3 className="text-sm font-semibold">{game.rating}</h3>
         </div>
       </div>
-      <p
-        className="text-[14px] font-md font-md w-[100%] leading-5">
+      <p className="text-[14px] font-md font-md w-full leading-5">
         {game.description}
       </p>
       <button
+        onClick={() => {
+          navigate(`/gamesDetails/${game.id}`);
+        }}
         className="p-1 px-4 rounded-lg border border-white bg-white w-45 m-auto
       hover:bg-purple-700 transition-all duration-300 text-black hover:text-white"
       >

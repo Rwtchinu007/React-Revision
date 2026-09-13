@@ -9,7 +9,7 @@ const Home = () => {
 
 
  const data =  useLoaderData();
- console.log(data);
+//  console.log(data);
 
   // const getGames = async ()=>{
   //   const data = await api.get("");
