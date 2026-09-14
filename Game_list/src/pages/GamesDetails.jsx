@@ -1,10 +1,13 @@
 import React from "react";
 import { useParams } from "react-router";
 import { useLoaderData } from "react-router";
+import {GameDataContext} from "../context/GameContext"
+import { useContext } from "react";
 
 const GamesDetails = () => {
   const data = useLoaderData();
   console.log(data);
+  const {addToFav,favourite} = useContext(GameDataContext);
   return (
     <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
    
@@ -31,7 +34,9 @@ const GamesDetails = () => {
               <button className="bg-primary px-6 py-3 rounded-xl">
                 Buy Now
               </button>
-              <button  className="border px-6 py-3 rounded-xl">
+              <button 
+              onClick={()=>addToFav(data)}
+               className="border px-6 py-3 rounded-xl">
                 Add to Favorites
               </button>
             </div>
